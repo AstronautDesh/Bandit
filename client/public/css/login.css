@@ -1,0 +1,52 @@
+@font-face {
+    font-family: NovaFlat;
+    src: url(../fontz/NovaFlat-Regular.woff2);
+}
+@font-face {
+    font-family: NovaSquare;
+    src: url(../fontz/NovaSquare-Regular.woff2);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #c5d5cb;
+    font-family: NovaSquare;
+}
+.container {
+    display: flex;
+    width: 100vw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    font-family: NovaSquare;
+}
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: non;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid red;
+}
+.btn{
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background-color: rgb(125, 207, 235);
+    border-radius: .5rem;
+}
+.btn a{
+    text-decoration: none;
+    color: black;
+}

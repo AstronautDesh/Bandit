@@ -1,0 +1,48 @@
+@font-face {
+  font-family: NovaSquare;
+  src: url(../fontz/NovaSquare-Regular.woff2);
+}
+
+.dropdown {
+    position: relative;
+    font-family: NovaSquare;
+    z-index: 20;
+  }
+
+  .dropdown-toggle {
+    background-color:snow;
+    color: #333;
+    padding: .5rem;
+    border: none;
+    cursor: pointer;
+    font-family: NovaSquare;
+    border-radius: .3rem;
+    font-size: 1rem;
+  }
+  .dropdown-toggle:hover{
+    background-color: rgb(7, 40, 52);
+    transition: all .3 ease-in-out;
+    cursor: pointer;
+    color: snow;
+    }
+  .dropdown-menu {
+    position: absolute;
+    right: 100%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 12px 20px 0px rgba(34, 2, 2, 0.2);
+    overflow-y: hidden;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .dropdown-item {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
