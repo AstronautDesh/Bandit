@@ -1,11 +1,11 @@
 @font-face {
     font-family: NovaFlat;
-    src: url(/fontz/NovaFlat-Regular.woff2);
+    src: url(../Fontz/NovaFlat-Regular.woff2);
   }
 
   @font-face {
     font-family: NovaSquare;
-    src: url(/fontz/NovaSquare-Regular.woff2);
+    src: url(../Fontz/NovaSquare-Regular.woff2);
   }
 
   * {

@@ -1,0 +1,52 @@
+.dropdown {
+  position: relative;
+}
+
+.custom-dropdown-toggle {
+  background-color: transparent !important;
+  border: 2px solid wheat !important;
+  color: wheat !important;
+  font-family: 'NovaFlat', sans-serif;
+  padding: .5rem;
+  border-radius: .4rem;
+}
+
+.custom-dropdown-toggle:hover,
+.custom-dropdown-toggle:focus,
+.custom-dropdown-toggle:active {
+  background-color: rgba(14, 9, 2, 0.2) !important;
+  border-color: wheat !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+.custom-dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid wheat !important;
+  display: grid;
+  position: absolute;
+  top: 100%; /* Position it right below the button */
+  right: 100%; /* Align it with the right edge of the button */
+  margin-top: 0.5rem; /* Add a small gap between button and menu */
+  min-width: 150px; /* Set a minimum width for the menu */
+}
+
+.custom-dropdown-item {
+  color: wheat !important;
+  font-family: 'NovaFlat', sans-serif;
+  margin: .5rem 0;
+  list-style: none;
+  text-decoration: none;
+  padding: .5rem;
+}
+
+.custom-dropdown-item:hover,
+.custom-dropdown-item:focus {
+  background-color: rgba(245, 222, 179, 0.2) !important;
+  color: white !important;
+}
+  @media (max-width: 991px) {
+    .basic-navbar-nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+  }

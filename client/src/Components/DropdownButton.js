@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import '../css/dropdown.css';
 
-const DropdownButton = () => {
+const DropdownMenuList = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleClick = (path) => {
+    onNavigate(path);
+    setIsOpen(false);
+  };
+
   return (
     <div className="dropdown">
       <button className="dropdown-toggle" onClick={toggleDropdown}>
-        More
+        Menu
       </button>
       {isOpen && (
         <div className="dropdown-menu">
-          <Link to="/"><li className='dropdown-item'>Home</li></Link>
-          <Link to="/newbox"><li className='dropdown-item'>Ticketin'</li></Link>
-          <li className='dropdown-item'>Ticket Here</li>
-          <li className='dropdown-item'>Ticket Here</li>
-          <li className='dropdown-item'>Ticket Here</li>
+          <li className='dropdown-item' onClick={() => handleClick("/")}>Home</li>
+          <li className='dropdown-item' onClick={() => handleClick("/ticketPage")}>Ticketin'</li>
+          <li className='dropdown-item' onClick={() => handleClick("/payment_portal")}>Payment Portal</li>
+          <li className='dropdown-item' onClick={() => handleClick("/blogPage")}>Blog Post</li>
         </div>
       )}
     </div>
   );
 };
 
-export default DropdownButton;
+export default DropdownMenuList;
