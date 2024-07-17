@@ -1,16 +1,19 @@
-import React from 'react';
-import '../css/page.css';
-import '../css/ticketPage.css';
+// Pages/TicketPage.js
+import React from "react";
+import "../css/page.css";
+import "../css/ticketPage.css";
+import EventItem from "../Components/EventItem";
+import { EventsData } from "../Data/EventsData";
 
-function TicketPage() {
+function TicketPage({ events = EventsData }) {
   return (
-    <div
-    className="ticketPage"
-  >
-      <div className="top-right-corner">
-      </div>
-        <h1>Ticket Page</h1>
-      </div>
+    <div className="ticketPage">
+    <div id="event-grid" >
+      {events.map(event => (
+        <EventItem key={event.id} {...event} />
+      ))}
+    </div>
+    </div>
   );
 }
 
