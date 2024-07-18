@@ -41,11 +41,13 @@
 .back-link {
   color: #2c0303;
   text-decoration: none;
+  text-transform: lowercase;
   margin-bottom: 0.9rem;
 }
 .total {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.9rem;
 }
 /* Right Section */
 .right-section {
@@ -83,6 +85,7 @@ nav {
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  scroll-behavior: smooth;
 }
 
 .card-container::-webkit-scrollbar {
@@ -99,11 +102,28 @@ nav {
   background: transparent;
 }
 
+/* Add styles for clickable nav items */
+nav span {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+nav span:hover {
+  color: green;
+}
+
+nav span.active {
+  color: lightgreen;
+  font-weight: bold;
+}
+
 .card {
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: wheat;
   padding: .5rem;
   overflow-y: auto; /* Added to allow vertical scrolling if content overflows */
@@ -128,7 +148,7 @@ nav {
 .card-details input {
   font-family: 'NovaSquare';
   width: 100%; /* Changed from 95% to 100% */
-  font-size: 1rem;
+  font-size: 1.3rem;
   border: none;
   outline: none;
   border-bottom: 2px solid #ccc;
@@ -136,6 +156,8 @@ nav {
   transition: border-color 0.3s, transform 0.3s;
   background: none;
   margin-top: 1rem;
+  color: goldenrod;
+  padding-left: 1.2rem;
 }
 
 .card-details input::placeholder {
@@ -184,7 +206,8 @@ nav {
 }
 
 .pay-button:hover {
-  background-color: wheat;
+  background-color: goldenrod;
+  border: .1px solid rgb(17, 12, 1);
   color: black;
   font-weight: 400;
 }

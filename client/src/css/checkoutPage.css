@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'NovaFlat';
+    src: url(../Fontz/NovaFlat-Regular.woff2);
+  }
+  
+  @font-face {
+    font-family: 'NovaSquare';
+    src: url(../Fontz/NovaSquare-Regular.woff2);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+.checkoutPage {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: orchid;
+    font-family: 'NovaFlat';
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-weight: bold;
+    color: rgb(5, 45, 58);
+}
+
+.back-link {
+    color: #ff6347;
+}
+
+.timer-message {
+    width: 100%;
+    background-color: #ffebee;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.timer {
+    color: #ff6347;
+    font-weight: bold;
+}
+
+.checkout-form {
+    width: 60%;
+    padding-right: 20px;
+}
+
+.form-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+    background: transparent;
+  }
+
+  .form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #777;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .form-group input:focus ~ label,
+  .form-group input:valid ~ label,
+  .form-group input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    left: 0;
+    color: #ff6347;
+    font-size: 12px;
+  }
+  .form-group input:focus,
+  .form-group input:valid {
+    border-bottom: 2px solid #ff6347;
+  }
+
+  .phone-input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .phone-input-wrapper select {
+    width: 80px;
+    margin-right: 10px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #777;
+    background: transparent;
+    outline: none;
+  }
+  
+  .phone-input-wrapper input {
+    flex: 1;
+  }
+  
+  .phone-input-wrapper label {
+    left: 90px;  /* Adjust based on the width of your select element */
+  }
+
+
+#country-code {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.order-summary {
+    width: 40%;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.discount-link {
+    color: #ff6347;
+    text-decoration: none;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.subtotal,
+.total {
+    font-weight: bold;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-group.checkbox input {
+    margin-right: 10px;
+  }
+  
+  .form-group.checkbox .info {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+  }

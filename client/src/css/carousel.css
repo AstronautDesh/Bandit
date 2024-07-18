@@ -1,4 +1,12 @@
+@font-face {
+  font-family: 'NovaFlat';
+  src: url(../Fontz/NovaFlat-Regular.woff2);
+}
 
+@font-face {
+  font-family: 'NovaSquare';
+  src: url(../Fontz/NovaSquare-Regular.woff2);
+}
 
 .carousel_wrapper {
     position: relative;
@@ -8,7 +16,7 @@
   
   .carousel_card {
     display: none;
-    flex: 1;
+ 
     position: absolute;
     width: 100%;
     height: 100%;
@@ -51,6 +59,7 @@
   .card_title {
     color: white;
     font-size: 30px;
+    font-family: 'NovaSquare';
   }
   
   .carousel_arrow_left,

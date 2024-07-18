@@ -4,35 +4,35 @@ export const images_and_data = [
         title: "Tupac Amaru Shakur"
     },
     {
-        src: "../img/2pacalypse.jpg",
+        src: "../img/ghostXtec.webp",
         title: "Amaru"
     },
     {
-        src: "../img/tickethands.jpg",
+        src: "../img/tickethands.webp",
         title: "Ticket Hands",
     },
     {
-        src: "../img/sdc.jpg",
+        src: "../img/sdc.webp",
         title: "Show Dem Camp",
     },
     {
-        src: "../img/donli.jpg",
+        src: "../img/donli.webp",
         title: "Lady Donli",
     },
     {
-        src: "../img/boj.jpeg",
+        src: "../img/boj.webp",
         title: "Boj",
     },
     {
-        src: "../img/odunsi.jpg",
+        src: "../img/odunsi.webp",
         title: "Ticket Hands",
     },
     {
-        src: "../img/baloranking.jpg",
+        src: "../img/baloranking.webp",
         title: "Baloranking",
     },
     {
-        src: "../img/oml.jpg",
+        src: "../img/oml.webp",
         title: "Badboi OML",
     },
 ];

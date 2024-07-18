@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Container, Row, Col, Nav, Form, Button } from 'react-bootstrap';
 import "../css/page.css";
 import "../css/paymentPage.css";
-// import { creditCardImage } from "../Data/EventsData"; // Uncomment this if needed
 
 import {
   FaCcVisa,
@@ -13,77 +13,109 @@ import {
 } from "react-icons/fa";
 
 function PaymentPage() {
-  // const cardStyle = {
-  //   backgroundImage: `url(${creditCardImage})`
-  // };
+  const cardContainerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const scrollToCard = (index) => {
+    if (cardContainerRef.current) {  // Changed to cardContainerRef
+      const cardWidth = cardContainerRef.current.offsetWidth;
+      cardContainerRef.current.scrollTo({  // Changed to cardContainerRef
+        left: cardWidth * index,
+        behavior: "smooth",
+      });
+      setActiveIndex(index);
+    }
+  };
+
+  useEffect(() => {
+    const container = cardContainerRef.current;
+    if (container) {
+      const handleScroll = () => {
+        const index = Math.round(container.scrollLeft / container.offsetWidth);
+        setActiveIndex(index);
+      };
+
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
+  const navItems = ["CARD", "USSD", "BANK TRANSFER", "OTHER"];
 
   return (
-    <div className="paymentPage">
-      <div className="top-right-corner"></div>
-      <div className="left-section">
-        <h1>
-          CHECK
-          <br />
-          -OUT
-        </h1>
-        <Link to="/ticketPage" className="back-link">
-          <h3>← BACK TO EVENTS</h3>
-        </Link>
-        <div className="total">
-          <span>TOTAL</span>
-          <span>$979.80</span>
-        </div>
-      </div>
-      <div className="right-section">
-        <nav>
-          <span>SHOPPING</span>
-          <span>→</span>
-          <span>ADDRESS</span>
-          <span>→</span>
-          <span className="active">CHECKOUT</span>
-        </nav>
-        <div className="card-container">
-          <div className="card">
-            <div className="card-types">
-              <FaCcVisa size={40} />
-              <FaCcMastercard size={40} />
-              <FaCcAmex size={40} />
-              <FaCcDiscover size={40} />
-            </div>
-            {/* Uncomment the following line if you have a creditCardImage */}
-            {/* <img src={creditCardImage} alt="Credit Card" /> */}
-            <div className="card-details">
-              <input type="text" placeholder="Name On Card" />
-              <input type="text" placeholder="Card Number" />
-              <div className="form-row">
-                <input type="text" placeholder="MM / YY" />
-                <input type="text" placeholder="Security code" />
-                <span className="info-icon">?</span>
-                <input type="text" placeholder="ZIP/Postal code" />
-                <span className="info-icon">?</span>
+    <Container fluid className="paymentPage">
+      <Row>
+        <Col md={4} className="left-section">
+          <h1>
+            CHECK
+            <br />
+            -OUT
+          </h1>
+          <Link to="/ticketPage" className="back-link">
+            <h3>← BACK TO EVENTS</h3>
+          </Link>
+          <div className="total">
+            <span>TOTAL</span>
+            <span>N--.--</span>
+          </div>
+        </Col>
+        <Col md={8} className="right-section">
+          <Nav className="justify-content-between">
+            {navItems.map((item, index) => (
+              <Nav.Item key={item}>
+                <Nav.Link 
+                  className={index === activeIndex ? "active" : ""}
+                  onClick={() => scrollToCard(index)}
+                >
+                  {item}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
+          </Nav>
+          <div className="card-container" ref={cardContainerRef}>
+            <div className="card">
+              <div className="card-types">
+                <FaCcVisa size={40} />
+                <FaCcMastercard size={40} />
+                <FaCcAmex size={40} />
+                <FaCcDiscover size={40} />
               </div>
+              <Form className="card-details">
+                <Form.Group>
+                  <Form.Control type="text" placeholder="Name On Card" />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control type="text" placeholder="Card Number" />
+                </Form.Group>
+                <Row>
+                  <Col>
+                    <Form.Control type="text" placeholder="MM / YY" />
+                  </Col>
+                  <Col>
+                    <Form.Control type="text" placeholder="Security code" />
+                  </Col>
+                  <Col>
+                    <Form.Control type="text" placeholder="ZIP/Postal code" />
+                  </Col>
+                </Row>
+              </Form>
+              <Button className="pay-button">
+                <FaLock /> Pay
+              </Button>
             </div>
-
-            <button className="pay-button">
-              <span className="lock-icon">
-                <FaLock />
-              </span>{" "}
-              {/* Use the FaLock icon */}
-              Pay
-            </button>
+            <div className="card">
+              <h1>USSD Payment</h1>
+            </div>
+            <div className="card">
+              <h1>Bank Transfer</h1>
+            </div>
+            <div className="card">
+              <h1>Other Payment Methods</h1>
+            </div>
           </div>
-          <div className="card">
-            <h1>Payment Portal</h1>
-          </div>
-          <div className="card">
-            <h1>Payment Portal</h1>
-          </div>
-          <div className="card">
-            <h1>Payment Portal</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

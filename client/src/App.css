@@ -26,7 +26,8 @@ body{
 .blogPage,
 .homePage,
 .paymentPage,
-.ticketPage{
+.ticketPage,
+.checkoutPage{
   width: 100%;
   height: 100vh;
 }

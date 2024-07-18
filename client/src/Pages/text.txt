@@ -1,119 +1,85 @@
-.card-details {
-  display: flex;
-  flex-direction: column;
+import React from "react";
+import { Link } from 'react-router-dom';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcDiscover, FaLock } from 'react-icons/fa';
+import "../css/page.css";
+import "../css/ticketPage.css";
+
+function PaymentPage({ navItems, activeIndex, scrollToCard, cardContainerRef }) {
+  return (
+    <Container fluid className="paymentPage">
+      <Row>
+        <Col xs={12} className="top-right-corner"></Col>
+      </Row>
+      <Row>
+        <Col xs={12} md={4} className="left-section">
+          <h1>
+            CHECK
+            <br />
+            -OUT
+          </h1>
+          <Link to="/ticketPage" className="back-link">
+            <h3>← BACK TO EVENTS</h3>
+          </Link>
+          <div className="total">
+            <span>TOTAL</span>
+            <span>N--.--</span>
+          </div>
+        </Col>
+        <Col xs={12} md={8} className="right-section">
+          <nav>
+            {navItems.map((item, index) => (
+              <React.Fragment key={item}>
+                <span
+                  className={index === activeIndex ? "active" : ""}
+                  onClick={() => scrollToCard(index)}
+                >
+                  {item}
+                </span>
+                {index < navItems.length - 1 && <span>→</span>}
+              </React.Fragment>
+            ))}
+          </nav>
+          <div className="card-container" ref={cardContainerRef}>
+            <div className="card">
+              <div className="card-types">
+                <FaCcVisa size={40} />
+                <FaCcMastercard size={40} />
+                <FaCcAmex size={40} />
+                <FaCcDiscover size={40} />
+              </div>
+              <div className="card-details">
+                <input type="text" placeholder="Name On Card" />
+                <input type="text" placeholder="Card Number" />
+                <div className="form-row">
+                  <input type="text" placeholder="MM / YY" />
+                  <input type="text" placeholder="Security code" />
+                  <span className="info-icon">?</span>
+                  <input type="text" placeholder="ZIP/Postal code" />
+                  <span className="info-icon">?</span>
+                </div>
+              </div>
+              <Button variant="primary" className="pay-button">
+                <span className="lock-icon">
+                  <FaLock />
+                </span>{" "}
+                Pay
+              </Button>
+            </div>
+            <div className="card">
+              <h1>USSD Payment</h1>
+            </div>
+            <div className="card">
+              <h1>Bank Transfer</h1>
+            </div>
+            <div className="card">
+              <h1>Other Payment Methods</h1>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
-.card-details input {
-  font-family: 'NovaSquare';
-  font-size: 1rem;
-  border: none; /* Remove default input border */
-  border-bottom: 2px solid #ccc; /* Add a custom bottom border */
-  padding: 0.5rem 0; /* Add some padding for spacing */
-  transition: border-color 0.3s, transform 0.3s; /* Smooth transition */
-
-  /* Placeholder styling */
-  &::placeholder {
-    color: #999;
-    font-style: italic;
-  }
-
-  &:focus,
-  &:hover {
-    border-color: #007bff; /* Highlight border color on focus/hover */
-    transform: translateY(-5px); /* Move input field up slightly */
-  }
-}
-
-
-
-/* Style the info icon (you can adjust this as needed) */
-.info-icon {
-  font-size: 1.2rem;
-  color: #999;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.card-details input {
-  font-family: 'NovaSquare';
-  font-size: 1rem;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  padding: 0.5rem 0;
-  transition: border-color 0.3s, transform 0.3s;
-
-  &::placeholder {
-    color: #999;
-  }
-
-  &:focus,
-  &:hover {
-    border-color: #007bff;
-    transform: translateY(-5px);
-  }
-}
-
-.form-row {
-  display: flex;
-  justify-content: space-around;
-  gap: 0.7rem;
-  margin-top: 0.5rem;
-}
-
-.info-icon {
-  font-size: 1.2rem;
-  color: #999;
-}
-
-.card-number {
-   display: flex;
-  margin-bottom: 2rem;
-  background-color: wheat;
-  border: 2px solid red;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-form {
-  display: flex;
-  flex-direction: column;
-}
-input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #333;
-  color: #fff;
-  margin-bottom: 1rem;
-  }
-  button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-
+export default PaymentPage;
