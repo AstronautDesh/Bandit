@@ -10,7 +10,7 @@
 
   .blogPage{
     width: 100%;
-    height: 400px;
+    min-height: 100%;
     background-color: orangered;
     display: flex;
     flex-direction: column;
