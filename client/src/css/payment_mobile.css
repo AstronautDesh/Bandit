@@ -1,0 +1,62 @@
+@media screen and (max-width: 576px) {
+.paymentPage {
+    width: 100%; /* Mobile Style Applied */
+    display: flex;   /* Mobile Style Applied */
+    flex-direction: column-reverse;   /* Mobile Style Applied */
+    padding-top: 8rem;  /* Mobile Style Applied */
+}
+/* Right Section */
+.right-section {
+  width: 100vw;    /* Mobile Style Applied */
+  margin: 0;   /* Mobile Style Applied */
+  padding: .9rem;   /* Mobile Style Applied */
+}
+.card-types {
+  justify-content: center; /* Mobile Style Applied */
+  gap: 1rem; /* Mobile Style Applied */
+}
+.row-group {
+  display: flex;
+  gap: 0.9rem;
+  width: 100%;
+  overflow: hidden;
+}
+.row-group .form-group .form-control {
+  flex: 1;
+  width: 100px;
+  padding: .5rem;
+}
+
+
+/* Left Section */
+.left-section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+}
+.left-section h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.back-link {
+  visibility: hidden; /* Mobile Style Applied */
+}
+.left-section .total {
+  width: 100%;
+  padding: .9rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  justify-content: space-between;
+}
+.back-link-mobile {
+  color: #2c0303;
+  text-decoration: none;
+  text-transform: lowercase;
+  margin-bottom: 0.9rem;
+}
+}

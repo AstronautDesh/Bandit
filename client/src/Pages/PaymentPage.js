@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Nav, Form, Button } from 'react-bootstrap';
 import "../css/page.css";
 import "../css/paymentPage.css";
+import "../css/payment_mobile.css";
 
 import {
   FaCcVisa,
@@ -17,9 +17,9 @@ function PaymentPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const scrollToCard = (index) => {
-    if (cardContainerRef.current) {  // Changed to cardContainerRef
+    if (cardContainerRef.current) {
       const cardWidth = cardContainerRef.current.offsetWidth;
-      cardContainerRef.current.scrollTo({  // Changed to cardContainerRef
+      cardContainerRef.current.scrollTo({
         left: cardWidth * index,
         behavior: "smooth",
       });
@@ -43,79 +43,89 @@ function PaymentPage() {
   const navItems = ["CARD", "USSD", "BANK TRANSFER", "OTHER"];
 
   return (
-    <Container fluid className="paymentPage">
-      <Row>
-        <Col md={4} className="left-section">
-          <h1>
-            CHECK
-            <br />
-            -OUT
-          </h1>
-          <Link to="/ticketPage" className="back-link">
-            <h3>← BACK TO EVENTS</h3>
-          </Link>
-          <div className="total">
-            <span>TOTAL</span>
-            <span>N--.--</span>
-          </div>
-        </Col>
-        <Col md={8} className="right-section">
-          <Nav className="justify-content-between">
-            {navItems.map((item, index) => (
-              <Nav.Item key={item}>
-                <Nav.Link 
-                  className={index === activeIndex ? "active" : ""}
-                  onClick={() => scrollToCard(index)}
-                >
-                  {item}
-                </Nav.Link>
-              </Nav.Item>
-            ))}
-          </Nav>
-          <div className="card-container" ref={cardContainerRef}>
-            <div className="card">
-              <div className="card-types">
-                <FaCcVisa size={40} />
-                <FaCcMastercard size={40} />
-                <FaCcAmex size={40} />
-                <FaCcDiscover size={40} />
+    <div className="paymentPage container-fluid">
+      <div className="left-section">
+        <h1>
+          CHECK
+          <br />
+          -OUT
+        </h1>
+        <Link to="/ticketPage" className="back-link">
+          <h3>← BACK TO EVENTS</h3>
+        </Link>
+        <div className="total">
+          <span>TOTAL</span>
+          <span>N--.--</span>
+        </div>
+        <Link to="/ticketPage" className="back-link-mobile">
+          <h3>← BACK TO EVENTS</h3>
+        </Link>
+      </div>
+      <div className="right-section">
+        <nav className="nav-grid">
+          {navItems.map((item, index) => (
+            <div key={item} className="nav-item">
+              <a
+                href={`#${item.toLowerCase()}`}
+                className={`nav-link ${index === activeIndex ? "active" : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToCard(index);
+                }}
+              >
+                {item}
+              </a>
+            </div>
+          ))}
+        </nav>
+
+        <div className="card-container" ref={cardContainerRef}>
+          <div className="card">
+            <div className="card-types">
+              <FaCcVisa size={40} />
+              <FaCcMastercard size={40} />
+              <FaCcAmex size={40} />
+              <FaCcDiscover size={40} />
+            </div>
+            <div className="card-details">
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Name On Card" />
               </div>
-              <Form className="card-details">
-                <Form.Group>
-                  <Form.Control type="text" placeholder="Name On Card" />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Control type="text" placeholder="Card Number" />
-                </Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Control type="text" placeholder="MM / YY" />
-                  </Col>
-                  <Col>
-                    <Form.Control type="text" placeholder="Security code" />
-                  </Col>
-                  <Col>
-                    <Form.Control type="text" placeholder="ZIP/Postal code" />
-                  </Col>
-                </Row>
-              </Form>
-              <Button className="pay-button">
-                <FaLock /> Pay
-              </Button>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="Card Number" />
+              </div>
+
+              <div className="row-group">
+
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="MM / YY" />
+              </div>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="CVC" />
+              </div>
+              <div className="form-group">
+                <input type="text" className="form-control" placeholder="ZIP/Postal" />
+              </div>
+
+              </div>
+
             </div>
-            <div className="card">
-              <h1>USSD Payment</h1>
-            </div>
-            <div className="card">
-              <h1>Bank Transfer</h1>
-            </div>
-            <div className="card">
-              <h1>Other Payment Methods</h1>
-            </div>
+            <button className="pay-button">
+              <FaLock /> Pay
+            </button>
           </div>
-        </Col>
-      </Row>
-    </Container>
+          <div className="card">
+            <h1>USSD Payment</h1>
+          </div>
+          <div className="card">
+            <h1>Bank Transfer</h1>
+          </div>
+          <div className="card">
+            <h1>Other Payment Methods</h1>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
