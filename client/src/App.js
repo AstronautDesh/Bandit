@@ -9,6 +9,9 @@ import PaymentPage from "./Pages/PaymentPage";
 import BlogPage from "./Pages/BlogPage";
 import DropdownMenuList from './Components/DropdownButton';
 import CheckoutForm from './Pages/CheckoutForm';
+import PerformingActsPage from "./BluePages/PerformingActsPage";
+import SongWriter from "./BluePages/SongWriter";
+import UI from './BluePages/UI';
 
 import "./App.css";
 
@@ -43,6 +46,9 @@ function App() {
             {currentPage === "/payment_portal" && <PaymentPage />}
             {currentPage === "/blogPage" && <BlogPage />}
             {currentPage === "/CheckoutForm" && <CheckoutForm />}
+            {currentPage === "/performingActsPage" && <PerformingActsPage />}
+            {currentPage === "/songwriter" && <SongWriter />}
+            {currentPage === "/design" && <UI />}
           </div>
         </CSSTransition>
       </TransitionGroup>
