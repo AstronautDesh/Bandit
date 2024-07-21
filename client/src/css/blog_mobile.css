@@ -1,23 +1,22 @@
 @media screen and (max-width: 576px) {
     *{
-        margin: 0;
-        padding: 0;
+        margin: var(--globalMargin);
+        padding: var(--globalPadding);
         box-sizing: border-box;
     }
     .blogPage{
-        background-color:rgb(41, 180, 227);
-        min-height: 100%;
-        width: 100%;
+        min-height: var(--normalHeight);
+        width: var(--normalWeight);
         overflow: hidden;
     }
     .blogPage h1{
         text-align: center;
         margin-top: 4.5rem;
-        font-family: monospace;
+        font-family: var(--totalFont);
     }
     .blogPage .category{
-        width: 100%;
-        height: 100%;
+        width: var(--normalWeight);
+        height:  var(--normalHeight);
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: .2rem;

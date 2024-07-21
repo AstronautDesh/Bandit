@@ -43,7 +43,7 @@ function PaymentPage() {
   const navItems = ["CARD", "USSD", "BANK TRANSFER", "OTHER"];
 
   return (
-    <div className="paymentPage container-fluid">
+    <div className="paymentPage">
       <div className="left-section">
         <h1>
           CHECK

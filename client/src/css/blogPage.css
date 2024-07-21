@@ -1,16 +1,6 @@
-@font-face {
-    font-family: 'NovaFlat';
-    src: url(../Fontz/NovaFlat-Regular.woff2);
-  }
-  
-  @font-face {
-    font-family: NovaSquare;
-    src: url(../Fontz/NovaSquare-Regular.woff2);
-  }
-
   .blogPage{
-    width: 100%;
-    min-height: 100%;
+    width: var(--normalWidth);
+    min-height: var(--normalHeight);
     background-color: orangered;
     display: flex;
     flex-direction: column;

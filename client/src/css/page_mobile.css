@@ -1,7 +1,7 @@
 @media (max-width: 576px) {
   *{
-    margin: 0;
-    padding: 0;
+    margin: var(--globalMargin);
+    padding: var(--globalPadding);
      box-sizing: border-box;
   }
   .form-grid-wrapper{
@@ -13,19 +13,23 @@
     overflow-x: hidden;
     margin: 0 auto;
     padding: 0;
-    background-color:rgb(41, 180, 227);
-    height: 100vh;
+    background-color: var(--bgColor);
+    height: var(--absoluteHeight);
   }
   .form-container {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
-    margin: 0;
+    height: calc(100% - 10px);
+    margin: var(--globalMargin);
   }
   .card_title {
     margin-bottom: 2rem;
+  }
+  .form-container button{
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 
   .headpage {
@@ -34,3 +38,33 @@
   }
 }
 
+@media (min-width: 768px) {
+  *{
+    margin: var(--globalMargin);
+    padding: var(--globalPadding);
+     box-sizing: border-box;
+  }
+  .form-grid-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .form-container {
+    margin: var(--globalMargin);
+    position: relative;
+    width: 500px;
+    height: 720px;
+    padding: .5rem;
+  }
+  .headpage {
+    width: 300px;
+    height: fit-content;
+    overflow: hidden;
+  }
+.headpage h1{
+  font-family: var(--primaryFont);
+  font-size: 4rem;
+  font-weight: var(--fwThin);
+}
+}

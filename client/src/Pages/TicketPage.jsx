@@ -8,7 +8,7 @@ import { EventsData } from "../Data/EventsData";
 function TicketPage({ events = EventsData }) {
   return (
     <div className="ticketPage">
-      <div id="event-grid">
+      <div id="event-grid" className="event-grid">
         {events.map(event => (
           <EventItem key={event.id} {...event} />
         ))}

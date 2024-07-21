@@ -1,50 +1,76 @@
 @font-face {
-  font-family: NovaFlat;
+  font-family: 'NovaFlat-Normal';
   src: url(./Fontz/NovaFlat-Regular.woff2);
+  font-weight: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'NovaFlat-Bold';
+  src: url(./Fontz/NovaFlat-Regular.woff2);
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NovaSquare';
+  src: url(./Fontz/NovaSquare-Regular.woff2);
+  font-weight: normal;
+  font-style: normal;
 }
 
-@font-face {
-  font-family: NovaSquare;
-  src: url(./Fontz/NovaSquare-Regular.woff2);
+:root {
+  --bgColor: rgb(41, 180, 227);
+  --mainBgColor: rgb(47, 1, 46);
+  --fs: 1rem;
+  --fw: bold;
+  --fwThin: 600;
+  --primaryFont: 'NovaFlat-Normal';
+  --headerFont: 'NovaFlat-Bold';
+  --buttonFont: 'NovaSquare';
+  --totalFont: 'monospace';
+  --normalWidth: 100%;
+  --absolutelWidth: 100vw;
+  --normalHeight: 100%;
+  --absoluteHeight: 100vh;
+  --globalMargin: 0;
+  --globalPadding: 0;
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: var(--globalMargin);
+  padding: var(--globalPadding);
   box-sizing: border-box;
 }
 body{
-  background-color: aquamarine;
-  width: 100vw;
-  height: 100vh;
+  background-color: var(--mainBgColor);
+  width: var(--absolutelWidth);
+  height: var(--absoluteHeight);
 }
-.App{
-  width: 100%;
-  height: 100vh;
+/* Main container */
+.App {
+  width: var(--normalWidth);
+  height: var(--absoluteHeight);
+  display: flex;
+  flex-direction: column;
   position: relative;
+  background-color: var(--bgColor);
 }
+
+/* Pages */
 .blogPage,
 .homePage,
 .paymentPage,
 .ticketPage,
-.checkoutPage{
-  width: 100%;
-  min-height: 100vh;
-}
-.form-grid{
-  width: 100%;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color:rgb(41, 180, 227);
+.checkoutPage {
+  width: var(--normalWidth);
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .page-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: var(--normalWidth);
+  height: var(--normalheight);
 }
 
 .fade-enter {
@@ -64,70 +90,3 @@ body{
   opacity: 0;
   transition: opacity 300ms ease-in;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.form-container {
-  background-image: url(./img/tickethands.jpg);
-  background-position: center;
-  background-size: cover;
-  padding: 20px;
-  border-radius: 10px;
-  width: 500px;
-  height: 500px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-left: 15rem;
-  position: relative;
-}
-.form-container .btn{
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: auto;
-  padding: .5rem;
-  border-radius: .3rem;
-  background-color:rgb(41, 180, 227);
-  font-family: NovaSquare;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  z-index: 2;
-}
-.form-container .btn:hover{
-background-color: rgb(125, 214, 243);
-transition: all .3 ease-in-out;
-cursor: pointer;
-}
-.form-container .btn a{
-text-decoration: none;
-}
-.headpage {
-  padding: 20px;
-  border-radius: 10px;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  height: 350px;
-  margin-top: 16rem;
-}
-.headpage h1{
-  font-family: NovaFlat;
-  font-size: 6rem;
-  font-weight: 600;
-}
-.headpage h3{
-  font-family: NovaSquare;
-  text-align: end;
-}*/
