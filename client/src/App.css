@@ -63,8 +63,6 @@ body{
 .checkoutPage {
   width: var(--normalWidth);
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .page-container {

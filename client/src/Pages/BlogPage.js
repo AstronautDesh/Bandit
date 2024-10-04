@@ -1,7 +1,7 @@
 //Pages/BlogPages.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import '../css/blogPage.css';
+import '../css/blogPage.css';
 import '../css/blog_mobile.css';
 //import PerformingActsPage from '../BluePages/PerformingActsPage';
 

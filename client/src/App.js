@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <DropdownMenuList onNavigate={handleNavigation} />
+      <DropdownMenuList className="buttonBox" onNavigate={handleNavigation} />
       <TransitionGroup>
         <CSSTransition
           key={currentPage}

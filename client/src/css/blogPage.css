@@ -1,10 +1,7 @@
   .blogPage{
     width: var(--normalWidth);
-    min-height: var(--normalHeight);
-    background-color: orangered;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: var(--absoluteHeight);
+    background-color: var(--bgColor);
     font-family: 'NovaFlat';
+    text-align: center;
   }

@@ -1,189 +1,176 @@
+/* PaymentPage.css */
 .paymentPage {
-    width: var(--normalWidth);
-    min-height: var(--absoluteHeight);
-    color: #100000;
-    background-color: var(--bgColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: var(--primaryFont);
-    padding: 0px 1rem;
-    gap: 0.5rem;
-}
-.left-section {
-    flex: 1;
-    padding: 2rem;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    height: fit-content;
-    margin: 5rem 0px 0px 5rem;
-}
-.left-section h1 {
-    font-size: 8rem;
-    font-weight: var(--fw);
-    line-height: 1;
-    margin-bottom: 1rem;
-}
-.back-link {
-    color: #2c0303;
-    text-decoration: none;
-    text-transform: lowercase;
-    margin-bottom: 0.9rem;
-}
-.total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.9rem;
-}
-
-
-/* Right Section */
-.right-section {
-    width: 40%;
-    height: fit-content;
-    /* Changed from fit-content to 100% */
-    display: flex;
-    flex-direction: column;
-    margin-right: 5rem;
-
-    background-color: black;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    /* Changed from overflow-x to overflow */
+    padding: 20px;
     position: relative;
-}
-nav {
-    padding: .5rem;
+  }
+  
+  .paymentPage h1 {
+    color: #000080;
+    margin-bottom: 20px;
+  }
+  
+  .paymentContainer {
     display: flex;
-    justify-content: space-between;
-    color: rgb(220, 146, 18);
-    position: absolute;
-    top: .5rem;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    /* Added to ensure nav stays on top */
-}
-
-.active {
-    color: #666;
-}
-
-.card-container {
-    width: var(--normalWidth);
-    flex: 1;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
-    scroll-behavior: smooth;
-}
-
-.card-container::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-.card-container::-webkit-scrollbar-thumb {
-    background-color: rgba(155, 155, 155, 0.5);
-    border-radius: 3px;
-}
-
-.card-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.nav-grid{
-    padding: .5rem 1rem;
-}
-.nav-link {
-    color: gold;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: green;
-}
-
-nav span {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%;
+    max-width: 1000px;
+  }
+  
+  .paymentDetails, .cardDetails {
+    padding: 20px;
+    width: 50%;
+  }
+  
+  .paymentDetails h2, .cardDetails h2 {
+    color: #000080;
+    margin-bottom: 15px;
+  }
+  
+  .invoiceLink {
+    color: #4169E1;
+    margin-bottom: 20px;
     cursor: pointer;
     transition: color 0.3s ease;
-}
-
-nav span:hover {
-    color: green;
-}
-
-nav span.active {
-    color: lightgreen;
-    font-weight: bold;
-}
-
-.card {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
+  }
+  
+  .invoiceLink:hover {
+    color: #1E90FF;
+  }
+  
+  .amountDetails {
+    margin-bottom: 20px;
+  }
+  
+  .amountRow {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
     align-items: center;
-    color: wheat;
-    padding: .5rem;
+  }
+  
+  .amountRow.total {
+    font-weight: bold;
+    color: #000080;
+  }
+  
+  .rememberCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cardDetails input,
+  .cardDetails select,
+  .amountDetails input,
+  .amountDetails select {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
     background-color: transparent;
-    overflow-y: hidden;
-}
-.card-types {
+    transition: border-color 0.3s ease;
+  }
+  
+  .cardDetails input:focus,
+  .cardDetails select:focus,
+  .amountDetails input:focus,
+  .amountDetails select:focus {
+    outline: none;
+    border-bottom-color: #4169E1;
+  }
+  
+  .cardNumber {
+    position: relative;
+  }
+  
+  .cardNumber img {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+  }
+  
+  .cardExpiry {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    gap: .5rem;
-    padding: .5rem;
-    width: var(--normalWidth);
-}
-.card-details {
-    display: flex;
-    flex-direction: column;
-    width: var(--normalWidth);
-    padding: 0 .5rem;
-}
-.card-details .form-group input {
-    font-family: var(--buttonFont);
-    font-size: var(--fs);
-    padding: 0.5rem 0;
-    transition: border-color 0.3s, transform 0.3s;
-}
-.card-details input::placeholder {
-    color: goldenrod;
-}
-.card-details input:focus,
-.card-details input:hover {
-    border-color: gold;
-    transform: translateY(-5px);
-}
-.row-group{
-    display: flex;
-    gap: .9rem;
-}
-.row-group .form-group input{
-    width: fit-content;
-}
-.pay-button {
-    background-color: black;
-    border-radius: .5rem;
-    padding: .9rem;
-    color: wheat;
-    font-family: 'NovaFlat';
-    width: 70%;
-    margin: 1rem auto;
-    border: .1px solid wheat;
-}
-
-.pay-button:hover {
-    background-color: goldenrod;
-    border: .1px solid rgb(17, 12, 1);
-    color: black;
-    font-weight: 400;
-}
+    gap: 10px;
+  }
+  
+  .cardExpiry input {
+    flex: 1;
+  }
+  
+  .payNowButton {
+    width: 200px;
+    padding: 15px;
+    background-color: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+  }
+  
+  .payNowButton:hover {
+    background-color: #1E90FF;
+    transform: translateY(-2px);
+  }
+  
+  .ikeaLogo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0000FF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
+  .ikeaLogo:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Decorative elements */
+  .paymentPage::before {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #0000FF;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .paymentPage::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .paymentPage:hover::before,
+  .paymentPage:hover::after {
+    transform: scale(1.1);
+  }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Carousel from '../Components/Carousel';
 import { images_and_data } from "../Components/Data";
 import '../css/page.css';
-import '../css/page_mobile.css';
+//import '../css/page_mobile.css';
 
 function HomePage() {
   const [autoPlay, setAutoPlay] = React.useState(true);

@@ -1,132 +1,83 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "../css/page.css";
-import "../css/paymentPage.css";
-import "../css/payment_mobile.css";
+import React, { useState } from 'react';
+import '../css/paymentPage.css';
 
-import {
-  FaCcVisa,
-  FaCcMastercard,
-  FaCcAmex,
-  FaCcDiscover,
-  FaLock,
-} from "react-icons/fa";
+const PaymentPage = () => {
+  const [amount, setAmount] = useState('');
+  const [quantity, setQuantity] = useState(1);
 
-function PaymentPage() {
-  const cardContainerRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const scrollToCard = (index) => {
-    if (cardContainerRef.current) {
-      const cardWidth = cardContainerRef.current.offsetWidth;
-      cardContainerRef.current.scrollTo({
-        left: cardWidth * index,
-        behavior: "smooth",
-      });
-      setActiveIndex(index);
-    }
+  const calculateTotal = () => {
+    const subtotal = parseFloat(amount) * quantity;
+    const tax = subtotal * 0.1; // Assuming 10% tax
+    const total = subtotal + tax;
+    return { subtotal, tax, total };
   };
 
-  useEffect(() => {
-    const container = cardContainerRef.current;
-    if (container) {
-      const handleScroll = () => {
-        const index = Math.round(container.scrollLeft / container.offsetWidth);
-        setActiveIndex(index);
-      };
-
-      container.addEventListener('scroll', handleScroll);
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
-
-  const navItems = ["CARD", "USSD", "BANK TRANSFER", "OTHER"];
+  const { subtotal, tax, total } = calculateTotal();
 
   return (
     <div className="paymentPage">
-      <div className="left-section">
-        <h1>
-          CHECK
-          <br />
-          -OUT
-        </h1>
-        <Link to="/ticketPage" className="back-link">
-          <h3>← BACK TO EVENTS</h3>
-        </Link>
-        <div className="total">
-          <span>TOTAL</span>
-          <span>N--.--</span>
-        </div>
-        <Link to="/ticketPage" className="back-link-mobile">
-          <h3>← BACK TO EVENTS</h3>
-        </Link>
-      </div>
-      <div className="right-section">
-        <nav className="nav-grid">
-          {navItems.map((item, index) => (
-            <div key={item} className="nav-item">
-              <a
-                href={`#${item.toLowerCase()}`}
-                className={`nav-link ${index === activeIndex ? "active" : ""}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToCard(index);
-                }}
+      <h1>Payment Page</h1>
+      <div className="paymentContainer">
+        <div className="paymentDetails">
+          <h2>Payment</h2>
+          <p className="invoiceLink">December invoice Financial Services (PDF) <span>↓</span></p>
+          <div className="amountDetails">
+            <div className="amountRow">
+              <span>Amount:</span>
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="Enter amount"
+              />
+            </div>
+            <div className="amountRow">
+              <span>Quantity:</span>
+              <select
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value))}
               >
-                {item}
-              </a>
+                {[...Array(10)].map((_, i) => (
+                  <option key={i + 1} value={i + 1}>{i + 1}</option>
+                ))}
+              </select>
             </div>
-          ))}
-        </nav>
-
-        <div className="card-container" ref={cardContainerRef}>
-          <div className="card">
-            <div className="card-types">
-              <FaCcVisa size={40} />
-              <FaCcMastercard size={40} />
-              <FaCcAmex size={40} />
-              <FaCcDiscover size={40} />
+            <div className="amountRow">
+              <span>Subtotal:</span>
+              <span>£{subtotal.toFixed(2)}</span>
             </div>
-            <div className="card-details">
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Name On Card" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Card Number" />
-              </div>
-
-              <div className="row-group">
-
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="MM / YY" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="CVC" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="ZIP/Postal" />
-              </div>
-
-              </div>
-
+            <div className="amountRow">
+              <span>Tax:</span>
+              <span>£{tax.toFixed(2)}</span>
             </div>
-            <button className="pay-button">
-              <FaLock /> Pay
-            </button>
+            <div className="amountRow total">
+              <span>Amount to pay:</span>
+              <span>£{total.toFixed(2)}</span>
+            </div>
           </div>
-          <div className="card">
-            <h1>USSD Payment</h1>
+          <label className="rememberCard">
+            <input type="checkbox" />
+            <span>Remember bank card</span>
+          </label>
+        </div>
+        <div className="cardDetails">
+          <h2>Card Details</h2>
+          <input type="text" placeholder="Cardholder's Name" />
+          <div className="cardNumber">
+            <input type="text" placeholder="Card Number" />
+            <img src="/path-to-mastercard-icon.png" alt="Mastercard" />
           </div>
-          <div className="card">
-            <h1>Bank Transfer</h1>
+          <div className="cardExpiry">
+            <input type="text" placeholder="MM" maxLength="2" />
+            <input type="text" placeholder="YY" maxLength="2" />
+            <input type="text" placeholder="CVV" maxLength="3" />
           </div>
-          <div className="card">
-            <h1>Other Payment Methods</h1>
-          </div>
+          <button className="payNowButton">Pay now</button>
         </div>
       </div>
+      <div className="ikeaLogo">IKEA</div>
     </div>
   );
-}
+};
 
 export default PaymentPage;

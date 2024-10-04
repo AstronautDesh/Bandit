@@ -1,8 +1,7 @@
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 480px) {
     .design {
         width: 100%;
         min-height: 100%;
-        background-color: rgb(41, 180, 227);
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: minmax(200px, auto);
@@ -18,6 +17,7 @@
     }
     .design .card {
         width: 100%;
+        height: 100px;
         display: flex;
         align-items: start;
         padding: .9rem;
@@ -34,14 +34,48 @@
     
 }
 
-@media screen and (min-width: 577px) and (max-width: 768px) {
+@media only screen and (min-width: 577px) {
     .design {
+        width: var(--normalWidth);
+        height: var(--absoluteHeight);
         grid-template-rows: minmax(300px, auto);
+    }
+     .design .wrapper{
+        grid-template-columns: repeat(minmax(300px, 1fr));
+        grid-template-rows: minmax(10px, auto);
+        gap: .5rem;
+        margin-top: 2rem;
+        height: var(--normalHeight);
+        width: var(--normalWidth);
+    }
+     .design .wrapper .card{
+        margin: .3rem auto;
+        width: auto;
+        max-width: 80%;
+        min-height: 100px;
+        height: auto;
+        border: 2px solid rgb(58, 28, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .design .wrapper .card:hover {
+        background-color: rgb(1, 12, 22);
+        transition: all .3s ease-in-out;
+        color: aliceblue;
+        font-weight: bold;
+        border: transparent;
     }
 }
 
+
 @media screen and (min-width: 769px) {
-    .design {
-        grid-template-rows: minmax(400px, auto);
+    .design .wrapper{
+        grid-template-columns: repeat(minmax(400px, 1fr));
+        grid-template-rows: minmax(300px, auto);
+        gap: .5rem;
+        margin-top: 2rem;
     }
 }
+
+

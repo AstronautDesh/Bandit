@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/page.css";
 import "../css/ticketPage.css";
-import "../css/ticket_mobile.css";
+//import "../css/ticket_mobile.css";
 import EventItem from "../Components/EventItem";
 import { EventsData } from "../Data/EventsData";
 

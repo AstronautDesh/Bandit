@@ -1,6 +1,6 @@
 .ticketPage{
   width: var(--normalWidth);
-  height: fit-content;
+  height: var(--absoluteHeight);
   display: flex;
   flex-direction: column;
   justify-content: center;
