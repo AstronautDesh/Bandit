@@ -1,176 +1,177 @@
-/* PaymentPage.css */
+*{
+  font-family: var(--primaryFont);
+}
 .paymentPage {
-    font-family: var(--primaryFont);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  
-  .paymentPage h1 {
-    color: #000080;
-    margin-bottom: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+  height: 100vh;
+}
+.paymentPage h1 {
+  color: #000080;
+  margin-bottom: 20px;
+}
+.payment-grid {
+  width: 70%;
+  height: fit-content;
+  padding: 1rem;
+}
+.headerText{
+  text-align: center;
+  padding: .5rem;
+}
+.paymentContainer {
+  background-color: rgb(77, 195, 235);
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgb(2, 59, 78);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures elements can wrap on smaller screens */
+}
+.sectionPaymentDetails,
+.sectionCardDetails {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+}
+.paymentDetails .cardDetails {
+  width: 50%;
+  border: 2px solid white;
+  padding: 1.3rem;
+  margin: 0px 20px 0px 0px;
+}
+
+.cardDetails{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.paymentDetails {
+  box-shadow: 0 .3rem .7rem rgb(2, 59, 78);
+ margin-bottom: 1.2rem;
+ margin-left: 4rem;
+ border: .1px solid;
+ border-radius: .4rem;
+ width: 70%;
+ padding: 1rem;
+}
+.amountRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+}
+.paymentDetails h2, .cardDetails h2 {
+  color: #000080;
+  margin-bottom: 15px;
+}
+/* Input field styles */
+input[type="text"], input[type="number"], select, .inputContact {
+  border: none;
+  border-bottom: .2px solid rgb(4, 16, 20);
+  outline: none;
+  width: 100%;
+  padding: .4rem 1rem;
+  margin: .5rem 0px;
+  transition: border-color 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="text"]:focus, input[type="number"]:focus, select:focus,
+.inputContact:focus {
+  border-bottom: 2px solid white;
+  margin-bottom: .5rem;
+}
+.inputDigits{
+  height: auto;
+  padding: 0px .9rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+ margin: .5rem;
+}
+.inputDigits .input-digit{
+  width: 50px;
+  margin: 0px .2rem;
+}
+.card-icon-grid{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.card-icon{
+  width: 20px;
+}
+
+/* Animate label */
+label {
+  display: block;
+  margin-bottom: .5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+input:focus + label, input:hover + label {
+  transform: translateY(-15px);
+}
+/* Pay now button */
+.payNowButton {
+  width: 100%;
+  padding: 10px;
+  margin: .5rem 0px;
+  background-color: rgb(3, 38, 49);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.payNowButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color:orangered;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+.payNowButton:hover::before {
+  width: 100%;
+}
+
+.payNowButton:hover {
+  color: rgb(2, 30, 39);
+  z-index: 1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
   .paymentContainer {
-    display: flex;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 80%;
-    max-width: 1000px;
-  }
-  
-  .paymentDetails, .cardDetails {
+    flex-direction: column;
     padding: 20px;
-    width: 50%;
   }
-  
-  .paymentDetails h2, .cardDetails h2 {
-    color: #000080;
-    margin-bottom: 15px;
+
+  /* Sections take up full width on smaller screens */
+  .sectionPaymentDetails,
+  .sectionCardDetails {
+    flex: 1 1 100%;
+    margin-bottom: 20px; /* Add spacing between the sections */
   }
-  
-  .invoiceLink {
-    color: #4169E1;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .invoiceLink:hover {
-    color: #1E90FF;
-  }
-  
-  .amountDetails {
+
+  .paymentDetails {
+    margin-right: 0;
     margin-bottom: 20px;
   }
-  
-  .amountRow {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    align-items: center;
-  }
-  
-  .amountRow.total {
-    font-weight: bold;
-    color: #000080;
-  }
-  
-  .rememberCard {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .cardDetails input,
-  .cardDetails select,
-  .amountDetails input,
-  .amountDetails select {
-    width: 100%;
-    padding: 10px 0;
-    margin-bottom: 15px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent;
-    transition: border-color 0.3s ease;
-  }
-  
-  .cardDetails input:focus,
-  .cardDetails select:focus,
-  .amountDetails input:focus,
-  .amountDetails select:focus {
-    outline: none;
-    border-bottom-color: #4169E1;
-  }
-  
-  .cardNumber {
-    position: relative;
-  }
-  
-  .cardNumber img {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-  }
-  
-  .cardExpiry {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .cardExpiry input {
-    flex: 1;
-  }
-  
-  .payNowButton {
-    width: 200px;
-    padding: 15px;
-    background-color: #4169E1;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: block;
-    margin: 20px auto 0;
-  }
-  
-  .payNowButton:hover {
-    background-color: #1E90FF;
-    transform: translateY(-2px);
-  }
-  
-  .ikeaLogo {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0000FF;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50%;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-  }
-  
-  .ikeaLogo:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Decorative elements */
-  .paymentPage::before {
-    content: '';
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    background-color: #0000FF;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-  
-  .paymentPage::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: #FFD700;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-  
-  .paymentPage:hover::before,
-  .paymentPage:hover::after {
-    transform: scale(1.1);
-  }
+}

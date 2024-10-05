@@ -15,7 +15,7 @@ function EventItem({ id, className, imageUrl, eventName, gridColumn, gridRow, ba
 
   const handleBuyTickets = useCallback((e) => {
     e.preventDefault();
-    navigate('/CheckoutForm', { state: { eventName } });
+    navigate('/payment_portal', { state: { eventName } });
   }, [navigate, eventName]);
 
   useEffect(() => {

@@ -63,6 +63,7 @@ body{
 .checkoutPage {
   width: var(--normalWidth);
   flex: 1;
+  position: relative;
 }
 
 .page-container {
